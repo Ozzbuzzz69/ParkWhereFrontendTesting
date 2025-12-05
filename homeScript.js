@@ -5,7 +5,8 @@ Vue.createApp({
         return {
             parkingSpotAmountWest: null,
             latestUpdate: null,
-            intervalId: null
+            previousParkingAmount: null,
+            timeoutId: null
         };
     },
 
@@ -13,30 +14,37 @@ Vue.createApp({
         async getParkingSpotAmount() {
             try {
                 const response = await axios.get(baseUrl);
-                this.parkingSpotAmountWest = response.data; // update based on API
-                // Update timestamp immediately after fetching
-                this.latestUpdate = new Date().toLocaleTimeString('en-GB', {
-                hour12: false,      // 24-hour format
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit'
-             });
+                const newAmount = response.data;
+
+                // Update parking spots
+                this.parkingSpotAmountWest = newAmount;
+
+                // Only update timestamp if value changed
+                if (newAmount !== this.previousParkingAmount) {
+                    this.latestUpdate = new Date().toLocaleTimeString('en-GB', {
+                    hour12: false,
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+                    this.previousParkingAmount = newAmount;
+                }
             } catch (ex) {
                 console.error("Error fetching parking spots:", ex.message);
+            } finally {
+                // Keep polling every 2 seconds
+                this.timeoutId = setTimeout(() => {
+                    this.getParkingSpotAmount();
+                }, 2000);
             }
         }
     },
 
     mounted() {
-        // Fetch immediately
-        this.getParkingSpotAmount();
-        
-        this.intervalId = setInterval(() => {
-            this.getParkingSpotAmount();
-        });
+        this.getParkingSpotAmount(); // Start first fetch
     },
 
     beforeUnmount() {
-        clearInterval(this.intervalId);
+        clearTimeout(this.timeoutId); // Cleanup
     }
 }).mount("#app");
