@@ -21,6 +21,12 @@ Vue.createApp({
     } catch (err) {
         console.error("Error loading statistics:", err);
     }
+},
+    capitalizeWords(str) {
+    if (!str) return '';
+    return str.toLowerCase().split(' ').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
+
+
 }
 
     },

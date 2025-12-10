@@ -3,8 +3,17 @@
     float: left;
 }
 
+.navbar-toggler {
+    filter: invert(1);
+}
+
 .a {
     display: block;
+}
+
+table {
+  margin: 0; /* Removes margin from the table itself */
+  border-spacing: 0; /* Removes space between cells */
 }
 
 
@@ -12,12 +21,44 @@
     box-sizing: border-box;
     padding: 0 ;
     margin: 0 ;
+     
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
+
+.cars-group col {
+      text-transform: capitalize;
+
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0;
+}
+
+h1 {
+    font-weight: 800; 
+}
+
+h2 {
+    font-weight: 600;
+
+}
+
+h3  {
+    font-weight: 500;
+}
+
 
 .map-bg {
     background-image:url("Images/zealandPark.png");
     background-size: cover;
     background-position: center;
+}
+
+i {
+    padding-right: 10px;
 }
 
 @media (max-width: 768px) {
@@ -28,8 +69,31 @@
 
 .container {
     padding: 0px 30px !important;
+    padding-top: 30px !important;
     max-width: 1000px !important;
 }
+
+.cars-counter h3{
+    font-size: 40px;
+    font-weight: 800;
+}
+
+.cars-counter {
+    -webkit-border-top-left-radius: 3px;
+-webkit-border-bottom-left-radius: 3px;
+-moz-border-radius-topleft: 3px;
+-moz-border-radius-bottomleft: 3px;
+border-top-left-radius: 3px;
+border-bottom-left-radius: 3px;
+}
+
+
+.statistics-row {
+    border: 1px solid #efeded;
+    background: border-box;
+    border-radius: 10px;
+}
+
 
 
 .prim-color {
@@ -40,6 +104,15 @@
     color: white !important;
 }
 
+.navbar i {
+    font-size: 14px;
+}
+
+
+.navbar-nav a {
+    font-weight: 700;
+    font-size: 16px !important;
+}
 
 .nav-link {
     padding: 0px;
@@ -54,6 +127,8 @@
     align-items: center;
 }
 
+
+
     .nav-item:after {
     margin-left: 10px;
     margin-right: 10px;
@@ -65,6 +140,30 @@
     transition: width .3s;
 }
 
+#app {
+  margin-top: 130px !important;
+}
+
+.navbar {
+    border-radius: 50px;
+    background-color: black;
+    padding: 15px 20px;
+    margin-top: 15px;
+    position: fixed;
+    width: calc(100% - 30px);
+    top: 0px;
+    left: 15px;
+        box-shadow:  0px 5px 15px 0px rgb(0 0 0 / 20%);
+        -webkit-box-shadow: 0px 5px 15px 0px rgb(0 0 0 / 20%);
+            -moz-box-shadow:  0px 5px 15px 0px rgb(0 0 0 / 20%);
+}
+
+.list-container {
+    position: relative;
+    left: 1px;
+}
+
+
 .navbar-toggler-icon {
     filter: invert(1) !important;
 }
@@ -75,3 +174,45 @@
 
 }
 
+.header-row .col {
+    
+    font-weight: 700;
+}
+
+.row {
+    --bs-gutter-x: 0px;
+}
+
+
+.cars-table li:first-child:before {
+    content: "Most popular!";
+    display: block;
+    position: absolute;
+    padding: 10px;
+    background-color: #fff288;
+    font-weight: 800;
+    font-size: 9px;
+    transform: rotate(-30deg);
+    z-index: 999;
+    left: -50px;
+    top: -4px;
+}
+
+li.list-group-item {
+    padding: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.list-group-item
+ {
+    background-color: #f7f7f7;
+ }
+
+ @media (max-width: 767px) {
+    .cars-table li:first-child:before {
+        left: -30px;
+        top: -10px;
+        font-size: 9px;
+    }
+ }
