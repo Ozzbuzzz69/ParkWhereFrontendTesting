@@ -5,8 +5,7 @@ Vue.createApp({
         return {
             stats: {
                 totalCars: 0,
-                carsByBrand: {},
-                carsByModel: {},
+                topModels: [],
                 carsByFueltype: {}
             }
         };
@@ -14,14 +13,16 @@ Vue.createApp({
 
     methods: {
         async loadStats() {
-            try {
-                const response = await axios.get(statsUrl);
-                console.log("API response:", response.data);
-                this.stats = response.data;
-            } catch (err) {
-                console.error("Error loading statistics:", err);
-            }
-        }
+    try {
+        const response = await axios.get(statsUrl);
+        console.log("Full API response:", response.data);
+        console.log("TopModels array:", response.data.TopModels);
+        this.stats = response.data;
+    } catch (err) {
+        console.error("Error loading statistics:", err);
+    }
+}
+
     },
 
     mounted() {

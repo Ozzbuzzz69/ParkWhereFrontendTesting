@@ -24,32 +24,24 @@
         <h4>Total Cars in Database: {{ stats.totalCars }}</h4>
     </div>
 
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 mb-4">
-  <div v-for="(brandData, brand) in stats.brands" :key="brand" class="col">
-    <div class="card h-100 shadow-sm p-3">
-      <h5 class="card-title">{{ brand }}</h5>
-      <p class="card-text">{{ brandData.count }} cars</p>
-
-      <ul class="list-group list-group-flush">
-        <li v-for="(count, model) in brandData.models" :key="model" class="list-group-item d-flex justify-content-between align-items-center">
-          {{ model }}
-          <span class="badge bg-primary rounded-pill">{{ count }}</span>
-        </li>
-      </ul>
+      <ul class="list-group mb-4">
+  <li v-for="car in stats.topModels" :key="car.brand + car.model" class="list-group-item">
+    <div class="row text-center">
+      <div class="col font-weight-bold">{{ car.brand }}</div>
+      <div class="col font-weight-bold">{{ car.model }}</div>
+      <div class="col">
+        <span class="badge bg-primary">{{ car.count }}</span>
+      </div>
     </div>
-  </div>
-</div>
+  </li>
+</ul>
 
-    <!-- Cars by Fuel Type -->
-    <h4 class="mb-3">Cars by Fuel Type</h4>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 mb-4">
-        <div v-for="(count, fuel) in stats.carsByFueltype" :key="fuel" class="col">
-            <div class="card text-center h-100 shadow-sm p-3">
-                <h5 class="card-title">{{ fuel }}</h5>
-                <p class="card-text">{{ count }} cars</p>
-            </div>
-        </div>
-    </div>
+
+
+    
+    
+
+    
 
 
 </div>
