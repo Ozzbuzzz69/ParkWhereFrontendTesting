@@ -1,4 +1,4 @@
-const statsUrl = "http://localhost:5166/api/parkwhere/stats";
+const statsUrl = "https://parkwhererest20251203132035-gdh2hyd0c9ded8ah.germanywestcentral-01.azurewebsites.net/api/parkwhere/stats";
 
 Vue.createApp({
     data() {
