@@ -6,10 +6,7 @@
     <title>Car Statistics</title>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -36,29 +33,29 @@
 </div>
 <div class="col-sm-7 px-0 list-container">
   <ul class="list-group">
-  <!-- Header row -->
-  <li class="list-group-item d-flex fw-bold header-row">
-    <div class="col text-start"><i class="fa-solid fa-car"></i>Brand</div>
-    <div class="col text-start"></i>Model</div>
-    <div class="col text-end"><i class="fa-solid fa-hashtag"></i>Count</div>
-  </li>
-   <div class="cars-table">
-  <!-- Data rows -->
-  <li v-for="car in stats.topModels" :key="car.brand + car.model" class="list-group-item d-flex table-info">
-    <div class="col text-start" id="carBrand">{{ capitalizeWords(car.brand) }}</div>
-    <div class="col text-start" id="carModel">{{ capitalizeWords(car.model) }}</div>
-    <div class="col text-end">
-      <span class="" id="carCount">{{ car.count }}</span>
+    <!-- Header row -->
+    <li class="list-group-item d-flex fw-bold header-row">
+      <div class="col text-start"><i class="fa-solid fa-car"></i>Brand</div>
+      <div class="col text-start">Model</div>
+      <div class="col text-end"><i class="fa-solid fa-hashtag"></i>Count</div>
+    </li>
+    <div class="cars-table">
+      <!-- Data rows -->
+      <li v-for="car in stats.topModels" :key="car.brand + car.model" class="list-group-item d-flex table-info">
+        <div class="col text-start" id="carBrand">{{ capitalizeWords(car.brand) }}</div>
+        <div class="col text-start" id="carModel">{{ capitalizeWords(car.model) }}</div>
+        <div class="col text-end">
+          <span class="" id="carCount">{{ car.count }}</span>
+        </div>
+      </li>
     </div>
-  </li>
-  </div>
-</ul>
+  </ul>
 </div>
       </div>
 
 
     </div>    
-</ul>
+
 
 </div>
 
